@@ -141,10 +141,12 @@ $(function() {
                 $(e.element).popover('show');
             }
         },
-        mouseOutDay: function(e) {          
-         if(e.events.length > 0) {
-                $(e.element).popover('hide');
-            }       
+        mouseOutDay: function(e) {    
+    			setTimeout(function () {
+                    if(e.events.length > 0) {
+            				$(e.element).popover("hide");
+        				}
+    				}, 170);      
         },     
         dataSource: [
             {
