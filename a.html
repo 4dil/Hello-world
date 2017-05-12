@@ -126,7 +126,11 @@ $(function() {
                 
                 for(var i in e.events) {
                     content += '<div class="event-tooltip-content">'
-                                    + '<div class="event-name" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>'
+                                    + '<div class="event-name" style="color:' + e.events[i].color + '">'
+                        +"<a href='www.google.com'>"
+                        + e.events[i].name + 
+                        +"</a>"
+                        +'</div>'
                                     + '<div class="event-location">' + e.events[i].location + '</div>'
                                 + '</div>';
                 }
