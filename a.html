@@ -76,6 +76,11 @@ function deleteEvent(event) {
     $('#calendar').data('calendar').setDataSource(dataSource);
 }
 
+function viewEvent(event) 
+{//some Code
+    console.log('View Event');
+
+}
 function saveEvent() {
     var event = {
         id: $('#event-moda input[name="event-index"]').val(),
@@ -119,7 +124,19 @@ function saveEvent() {
 $(function() {
     var currentYear = new Date().getFullYear();
 
-    $('#calendar').calendar({   
+    $('#calendar').calendar({  
+        enableContextMenu: true,
+        enableRangeSelection: false,
+        contextMenuItems:[
+            {
+                text: 'View',
+                click: viewEvent
+            },
+            {
+                text: 'Edit',
+                click: editEvent
+            }
+        ], 
         clickDay: function(e) {
             if(e.events.length > 0) {
                 var content = '';
@@ -147,7 +164,7 @@ $(function() {
         },
         mouseOutDay: function(e) {    
     			setTimeout(function () {
-                    if(e.events.length > 0) {
+        			if (!$(".popover:hover").length) {
             				$(e.element).popover("hide");
         				}
     				}, 170);      
